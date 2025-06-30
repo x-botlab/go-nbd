@@ -27,6 +27,7 @@ const (
 
 	NEGOTIATION_REPLY_FLAGS_HAS_FLAGS      = uint16((1 << 0))
 	NEGOTIATION_REPLY_FLAGS_CAN_MULTI_CONN = uint16((1 << 8))
+	NEGOTIATION_REPLY_FLAGS_SEND_TRIM      = uint16((1 << 5))
 )
 
 type NegotiationNewstyleHeader struct {

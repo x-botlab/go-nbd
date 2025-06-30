@@ -9,3 +9,7 @@ type Backend interface {
 	Size() (int64, error)
 	Sync() error
 }
+
+type Trimable interface {
+	Trim(offset int64, length int64) error
+}

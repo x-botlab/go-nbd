@@ -147,9 +147,12 @@ n:
 
 			{
 				transmissionFlags := uint16(0)
+				transmissionFlags = protocol.NEGOTIATION_REPLY_FLAGS_HAS_FLAGS
 				if options.SupportsMultiConn {
-					transmissionFlags = protocol.NEGOTIATION_REPLY_FLAGS_HAS_FLAGS | protocol.NEGOTIATION_REPLY_FLAGS_CAN_MULTI_CONN
+					transmissionFlags = protocol.NEGOTIATION_REPLY_FLAGS_CAN_MULTI_CONN
 				}
+
+				transmissionFlags = transmissionFlags | protocol.NEGOTIATION_REPLY_FLAGS_SEND_TRIM
 
 				info := &bytes.Buffer{}
 				if err := binary.Write(info, binary.BigEndian, protocol.NegotiationReplyInfo{
@@ -410,6 +413,23 @@ n:
 			}
 
 			return nil
+		case protocol.TRANSMISSION_TYPE_REQUEST_TRIM:
+			if !options.ReadOnly && length > 0 {
+				if trimableBackend, ok := export.Backend.(backend.Trimable); ok {
+					if err := trimableBackend.Trim(int64(requestHeader.Offset), int64(length)); err != nil {
+						return err
+					}
+				}
+			}
+
+			if err := binary.Write(conn, binary.BigEndian, protocol.TransmissionReplyHeader{
+				ReplyMagic: protocol.TRANSMISSION_MAGIC_REPLY,
+				Error:      0,
+				Handle:     requestHeader.Handle,
+			}); err != nil {
+				return err
+			}
+
 		default:
 			_, err := io.CopyN(io.Discard, conn, int64(requestHeader.Length)) // Discard the unknown command's data
 			if err != nil {
