@@ -1,4 +1,4 @@
-module github.com/pojntfx/go-nbd
+module github.com/x-botlab/go-nbd
 
 go 1.20
 
