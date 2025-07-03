@@ -6,7 +6,7 @@ Pure Go NBD server and client library.
 
 <br/>
 
-[![hydrun CI](https://github.com/pojntfx/go-nbd/actions/workflows/hydrun.yaml/badge.svg)](https://github.com/pojntfx/go-nbd/actions/workflows/hydrun.yaml)
+[![hydrun CI](https://github.com/x-botlab/go-nbd/actions/workflows/hydrun.yaml/badge.svg)](https://github.com/x-botlab/go-nbd/actions/workflows/hydrun.yaml)
 ![Go Version](https://img.shields.io/badge/go%20version-%3E=1.20-61CFDD.svg)
 [![Go Reference](https://pkg.go.dev/badge/github.com/pojntfx/go-nbd.svg)](https://pkg.go.dev/github.com/pojntfx/go-nbd)
 [![Matrix](https://img.shields.io/matrix/go-nbd:matrix.org)](https://matrix.to/#/#go-nbd:matrix.org?via=matrix.org)
@@ -26,7 +26,7 @@ It enables you to:
 You can add go-nbd to your Go project by running the following:
 
 ```shell
-$ go get github.com/pojntfx/go-nbd/...@latest
+$ go get github.com/x-botlab/go-nbd/...@latest
 ```
 
 ## Tutorial

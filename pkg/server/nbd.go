@@ -7,8 +7,8 @@ import (
 	"io"
 	"net"
 
-	"github.com/pojntfx/go-nbd/pkg/backend"
-	"github.com/pojntfx/go-nbd/pkg/protocol"
+	"github.com/x-botlab/go-nbd/pkg/backend"
+	"github.com/x-botlab/go-nbd/pkg/protocol"
 )
 
 var (

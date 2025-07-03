@@ -6,9 +6,9 @@ import (
 	"net"
 	"os"
 
-	"github.com/pojntfx/go-nbd/pkg/backend"
-	"github.com/pojntfx/go-nbd/pkg/client"
-	"github.com/pojntfx/go-nbd/pkg/server"
+	"github.com/x-botlab/go-nbd/pkg/backend"
+	"github.com/x-botlab/go-nbd/pkg/client"
+	"github.com/x-botlab/go-nbd/pkg/server"
 )
 
 func main() {
